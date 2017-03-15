@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+
+    <servlet>
+        <servlet-name>Product</servlet-name>
+        <servlet-class>servet.Product</servlet-class>
+        <init-param>
+            <param-name>el1</param-name>
+            <param-value>getOps("buy");</param-value>
+        </init-param>
+        <init-param>
+            <param-name>el2</param-name>
+            <param-value>ops</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>BasketServlet</servlet-name>
+        <servlet-class>servet.BasketServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>authSe</servlet-name>
+        <servlet-class>servet.authSe</servlet-class>
+        <init-param>
+            <param-name>SelectedPage</param-name>
+            <param-value>1</param-value>
+        </init-param>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>authSe</servlet-name>
+        <url-pattern>/au</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Order</servlet-name>
+        <servlet-class>servet.OrderController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>Order</servlet-name>
+        <url-pattern>/order</url-pattern>
+    </servlet-mapping>
+
+
+    <servlet-mapping>
+        <servlet-name>Comment</servlet-name>
+        <url-pattern>/comment</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>Comment</servlet-name>
+        <servlet-class>servet.Comments</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>CatalogController</servlet-name>
+        <servlet-class>servet.CatalogController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>CatalogController</servlet-name>
+        <url-pattern>/exet1</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <display-name>LogFilter</display-name>
+        <filter-name>LogFilter</filter-name>
+        <filter-class>LogFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>LogFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+
+
+</filter-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Product</servlet-name>
+        <url-pattern>/Product</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>BasketServlet</servlet-name>
+        <url-pattern>/s1</url-pattern>
+    </servlet-mapping>
+
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>initial.jsp</welcome-file>
+    </welcome-file-list>
+
+
+    <security-constraint>
+        <web-resource-collection>
+            <url-pattern>/au</url-pattern>
+            <url-pattern>/cabinet.jsp</url-pattern>
+            <url-pattern>/hist.jsp</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>user</role-name>
+        </auth-constraint>
+    </security-constraint>
+    <security-role>
+        <role-name>user</role-name>
+    </security-role>
+
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <form-login-config>
+            <form-login-page>/auth.jsp</form-login-page>
+            <form-error-page>/auth_error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
+</web-app>

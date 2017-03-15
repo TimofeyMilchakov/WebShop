@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="stylesheet" href="newcss1.css">
+        <title> magaz 
+        </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src='getOps.js'></script>
+        
+    </head>
+    <body>
+        <div class="g">
+            <div class="g-row">
+                 <img class="f-bwi-pic" alt="log" src="img/log.jpg">
+                 <div>
+                     <form method='GET' action='Product'>
+                     <button type='submit' value='russian'><img alt="ru" src="img/ru.jpg" width="30" height="15"></button>
+                     <button type='submit' value='English'><img alt="en" src="img/en.jpg" width="30" height="15"></button>
+                     <button type='submit' value='belarus'><img alt="be" src="img/be.jpg" width="30" height="15"></button>
+                     </form>
+                 </div>
+            </div>
+        </div>
+        <div class="f-nav-bar">
+            <div class="f-nav-bar-body">
+                    <div class="f-nav-bar-title">
+                        <a href="#">меню</a>
+                    </div>
+                    <ul class="f-nav">
+                            <li><a href="index.html">Главная</a></li>
+                            <li><a href="#">О компании</a></li>
+                            <li><a href="#">Каталог</a></li>
+                            <li><a href="#">Контакты</a></li>
+                    </ul><!-- f-nav -->
+            </div><!-- f-nav-bar-body -->
+        </div><!-- f-nav-bar -->
+        
+                                <p><jsp:getProperty name="prodId" property="te1" /></p>
+                        <p><jsp:getProperty name="prodId" property="te2" /></p>
+                        <p><jsp:getProperty name="prodId" property="te3" /></p>  
+                        <p><jsp:getProperty name="prodId" property="te4" /></p>
+        
+        
+                        
+                                        <div class="f-bwi" > 
+                    <h4><fmt:message key="${f: getProd(product.key).type}"/></h4>
+                    <img class="f-bwi-pic" src="${f: getProd(product.key).img}"/>
+                        <div class="f-bwi-text">
+                            <form action="/s1?lang=${lang}" method="post">
+                                <input name="idM" type="image" src="../images/minus.ico" value="${product.key}">
+                            </form>
+                            <input type="text" value="${product.value}" size="3"/>
+                            <form action="/s1?lang=${lang}" method="post">
+                                <input name="idP" type="image" src="../images/plus." value="${product.key}">
+                             </form>
+                        </div>
+                </div>
+                        
+                        
+                        
+        
+        <ul class="f-nav f-nav-tabs">
+            <li><a class="active" onclick="getOps(1);">Покупка</a></li>
+            <li><a  onclick="getOps(2);">Описание товара</a></li>
+            <li><a onclick="getOps(3);">Отзывы </a></li>
+<       </ul>
+        
+       <div  id="opsAndImj" style="display: none;">
+            <img class="f-bwi-pic" width="400" height="400" src="img/milk.jpg" alt="milk" />
+            <div  id="ops" style="display: none;" >
+            <p>  Молоко́ — питательная жидкость, вырабатываемая молочными железами самок млекопитающих.</p>
+            <p>  Естественное предназначение молока — вскармливание детёнышей (в том числе и у человека),</p>
+            <p>  которые ещё не способны переваривать другую пищу. В настоящее время молоко входит в состав</p>
+            <p>  многих продуктов, используемых человеком, а его производство стало крупной отраслью промышленности.</p>
+            <p>  Молоко — многокомпонентная полидисперсная система, в которой все составные вещества находятся в </p>
+            <p>  тонкодисперсном состоянии, что обеспечивает молоку жидкую консистенцию. Tехнический регламент</p>
+            <p>  определяет молоко как продукт нормальной физиологической секреции молочных желез </p>
+            <p>  сельскохозяйственных животных, полученный от одного или нескольких животных в период</p>
+            <p>  лактации при одном и более доении, без каких-либо добавлений к этому продукту.</p>
+             </div>
+            
+             <div class="f-bwi-text" id="buy" style="display: none;"> 
+                 <p>производство - россия</p>
+                 <p>объем - 1 литр</p>
+                 <p>срок годности - 2 недели</p>
+                 <p>жирность - 5%</p>
+                 <button class="f-bu f-bu-success">купить</button>
+                 
+             </div>
+            
+            
+             
+            
+        </div>
+            <div id="ots" style="display: none;">
+                <img class="f-bwi-pic" width="400" height="400" src="img/gr.jpg" alt="milk" />
+                <div>НИКТО НЕ ОСТАВИЛ СВОЙ ОТЗЫВ</div>
+            </div>
+                                <h2><fmt:message key="page.${cookie.buy.value}.inf1"/></h2>
+                        <h2><fmt:message key="page.${cookie.buy.value}.inf2"/></h2>
+                        <h2><fmt:message key="page.${cookie.buy.value}.inf3"/></h2>
+                        <h2><fmt:message key="page.${cookie.buy.value}.inf4"/></h2>
+
+    </body>
+</html>
